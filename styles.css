@@ -1,1 +1,216 @@
+ 
+    .main_Container {
+     font-family: Sans-Serif;
+     display: flex;
+     flex-wrap: wrap;
+     width: auto;
+     justify-content: center; 
+     overflow-x: hidden;
+     margin: 0 auto;
+    }
+   
+    .main_Container > div {
+      width: 320px;
+      height: 80px;
+      background: #aaf8c9;
+      padding: 5px 5px;
+      border: 2px solid #169823;
+      border-radius: 5px ;
+      margin: 10px;
+    }
+   
+   .main_Container > div > img {
+      position: relative;
+      top: 0px;
+      left: 0px;
+      width: 70px;
+      height: 70px;
+      border: 2px solid #169823; 
+      border-radius: 50px;
+      margin-top: 2px;
+      outline: none;
+    }  
+    .main_Container > div > .title {
+      position: relative;
+      top: -80px;
+      color: black;
+      font-size: 18px;
+      margin-top: 5px;
+      margin-left: 80px;
+      margin-bottom: 5px;
+    }
+    
+    .main_Container > div > .category {
+      position: relative;
+      left: 80px;
+      top: -75px;
+      font-size: 14px;
+      color: #169823;
+      font-style: bold;
+      margin-top: 0px;
+      margin-left: 0px; 
+    }
+    .main_Container > div > .date {
+      position: relative;
+      top: -80px;
+      left: 0px;
+      color: red;
+      margin-top:  -5px;
+      margin-left: 80px;
+      font-size: 10px;
+    }
+    
+    .main_Container > div > a {
+      /*
+      margin-right: 0px;
+      margin-top: -10px; */
+    }
+    
+    .main_Container > div > a:visited {
+      color: red;
+    }
+    
+    .main_Container > div >  input {
+  /*    position: relative;
+      right: 0px; */
+      position: relative;
+      top: -130px; 
+      left: 230px; 
+      width: 80px;
+      padding: 3px 0px;
+      background: #169823;
+      color: white;
+      border: 2px solid white;
+      border-radius: 5px;
+  /*    margin-top: -35px ;
+      margin-right: 10px; */
+      transition: 0.2s;
+    }
+    .main_Container > div > a > input:hover {
+      color: #169823;
+      background: white;
+      border: 2px solid #169823;
+    }
+    .main_Container > div > .clickCount {
+      position: relative;
+      top: -135px;
+      left: 235px;
+      /*
+      margin-top: -15px;
+      margin-right: 300px; */
+      font-size: 10px;
+    }
+    
+/* ============== custom dialog ========== */    
+      .dialog {
+      position: fixed;
+      top: 0px;
+      background: rgba(0,0,0,0.5); 
+     /* background: black; */
+      display: none;
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      z-index: 1;
+      padding-top: 50%;
+      padding-left: 0.2%;
+    }
+    .dialog_container {
+      position: fixed;
+      top: 30%;
+      left: 5%; 
+      width: 90%;
+      padding: 0px; 
+      margin: 0 auto;
+      background: #d0ffc9;
+      border-radius: 5px;
+      text-align: center;
+      z-index: 1;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+     -webkit-animation-name: animatetop;
+     -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+    }
+    
+   /* Add Animation */
+   @-webkit-keyframes animatetop {
+     from {top: 0%; opacity:0} 
+     to {top: 30%; opacity:1}
+}
+
+  @keyframes animatetop {
+     from {top: 0%; opacity:0}
+     to {top: 30%; opacity:1}
+   }
+
+    .dialog_header {
+      position: relative;
+      top: -20px;
+      right: 0px;
+      height: 50px ;
+      background: green;
+      color: white;
+      padding: 5px 0px;
+     
+    }
+    
+    .dialog_header > .dialog_close {
+      float: right;
+      margin-right: 10px;
+      margin-top: 2px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    
+    .dialog_header > .title {
+      margin: 12px;
+      text-align: left;
+    }
+    
+    .dialog_body {
+      background: #cfffcc;  
+      border-bottom: 1px solid lightgray;
+    }
+    .dialog_body > .sublites {
+      text-align: left;
+      margin: 20px 10px ;
+    }
+    .dialog_footer {
+       height: 50px;
+       background: #cfffcc;  
+     }
+    .positiveBtn {
+      position: relative;
+      bottom: -12px;
+      float: right;
+      margin-right: 10px;
+      padding: 8px 35px;
+   /*   height: 30px; */
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      transition-duration: 0.2s;
+    }
+    .dialog_footer  > .positiveBtn:hover, .positiveBtn:active {
+      background: #5ba738;
+    }
+    .dialog_footer > .nagitiveBtn {
+      position: relative;
+      bottom: -12px;
+      float: right;
+      padding: 7px 35px;
+      margin-right: 10px;
+      border: 1px solid gray;
+      background: none;
+      color: #4b4b4b;
+      border-radius: 3px;
+      transition-duration: 0.2s;
+    }
+     .dialog_footer > .nagitiveBtn:hover, .nagitiveBtn:active {
+      background: lightGray;
+    } 
+    
 
