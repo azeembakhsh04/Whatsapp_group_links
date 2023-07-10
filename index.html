@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> Get all groups </title>
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="https://github.com/azeembakhsh04/WhatsappGroupsLinks/blob/main/WhatsappGroupsStyle.css">
+    <style>
+    
+    .main_Container {
+     font-family: Sans-Serif;
+     display: flex;
+     flex-wrap: wrap;
+     width: auto;
+     justify-content: center; 
+     overflow-x: hidden;
+     margin: 0 auto;
+    }
+   
+    .main_Container > div {
+      width: 320px;
+      height: 80px;
+      background: #aaf8c9;
+      padding: 5px 5px;
+      border: 2px solid #169823;
+      border-radius: 5px ;
+      margin: 10px;
+    }
+   
+   .main_Container > div > img {
+      position: relative;
+      top: 0px;
+      left: 0px;
+      width: 70px;
+      height: 70px;
+      border: 2px solid #169823; 
+      border-radius: 50px;
+      margin-top: 2px;
+      outline: none;
+    }  
+    .main_Container > div > .title {
+      position: relative;
+      top: -80px;
+      color: black;
+      font-size: 18px;
+      margin-top: 5px;
+      margin-left: 80px;
+      margin-bottom: 5px;
+    }
+    
+    .main_Container > div > .category {
+      position: relative;
+      left: 80px;
+      top: -75px;
+      font-size: 14px;
+      color: #169823;
+      font-style: bold;
+      margin-top: 0px;
+      margin-left: 0px; 
+    }
+    .main_Container > div > .date {
+      position: relative;
+      top: -80px;
+      left: 0px;
+      color: red;
+      margin-top:  -5px;
+      margin-left: 80px;
+      font-size: 10px;
+    }
+    
+    .main_Container > div > a {
+      /*
+      margin-right: 0px;
+      margin-top: -10px; */
+    }
+    
+    .main_Container > div > a:visited {
+      color: red;
+    }
+    
+    .main_Container > div >  input {
+  /*    position: relative;
+      right: 0px; */
+      position: relative;
+      top: -130px; 
+      left: 230px; 
+      width: 80px;
+      padding: 3px 0px;
+      background: #169823;
+      color: white;
+      border: 2px solid white;
+      border-radius: 5px;
+  /*    margin-top: -35px ;
+      margin-right: 10px; */
+      transition: 0.2s;
+    }
+    .main_Container > div > a > input:hover {
+      color: #169823;
+      background: white;
+      border: 2px solid #169823;
+    }
+    .main_Container > div > .clickCount {
+      position: relative;
+      top: -135px;
+      left: 235px;
+      /*
+      margin-top: -15px;
+      margin-right: 300px; */
+      font-size: 10px;
+    }
+    
+/* ============== custom dialog ========== */    
+      .dialog {
+      position: fixed;
+      top: 0px;
+      background: rgba(0,0,0,0.5); 
+     /* background: black; */
+      display: none;
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      z-index: 1;
+      padding-top: 50%;
+      padding-left: 0.2%;
+    }
+    .dialog_container {
+      position: fixed;
+      top: 30%;
+      left: 5%; 
+      width: 90%;
+      padding: 0px; 
+      margin: 0 auto;
+      background: #d0ffc9;
+      border-radius: 5px;
+      text-align: center;
+      z-index: 1;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+     -webkit-animation-name: animatetop;
+     -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+    }
+    
+   /* Add Animation */
+   @-webkit-keyframes animatetop {
+     from {top: 0%; opacity:0} 
+     to {top: 30%; opacity:1}
+}
+
+  @keyframes animatetop {
+     from {top: 0%; opacity:0}
+     to {top: 30%; opacity:1}
+   }
+
+    .dialog_header {
+      position: relative;
+      top: -20px;
+      right: 0px;
+      height: 50px ;
+      background: green;
+      color: white;
+      padding: 5px 0px;
+     
+    }
+    
+    .dialog_header > .dialog_close {
+      float: right;
+      margin-right: 10px;
+      margin-top: 2px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    
+    .dialog_header > .title {
+      margin: 12px;
+      text-align: left;
+    }
+    
+    .dialog_body {
+      background: #cfffcc;  
+      border-bottom: 1px solid lightgray;
+    }
+    .dialog_body > .sublites {
+      text-align: left;
+      margin: 20px 10px ;
+    }
+    .dialog_footer {
+       height: 50px;
+       background: #cfffcc;  
+     }
+    .positiveBtn {
+      position: relative;
+      bottom: -12px;
+      float: right;
+      margin-right: 10px;
+      padding: 8px 35px;
+   /*   height: 30px; */
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      transition-duration: 0.2s;
+    }
+    .dialog_footer  > .positiveBtn:hover, .positiveBtn:active {
+      background: #5ba738;
+    }
+    .dialog_footer > .nagitiveBtn {
+      position: relative;
+      bottom: -12px;
+      float: right;
+      padding: 7px 35px;
+      margin-right: 10px;
+      border: 1px solid gray;
+      background: none;
+      color: #4b4b4b;
+      border-radius: 3px;
+      transition-duration: 0.2s;
+    }
+     .dialog_footer > .nagitiveBtn:hover, .nagitiveBtn:active {
+      background: lightGray;
+    } 
+    
+
+    </style>
+  
+  </head>
+  <body>
+    
+   
+    <div class="main_Container" id="main_Container">
+    </div>
+    
+     <div class="dialog" id="dialog">
+   <div class="dialog_container" id="dialog_container">
+     
+     <div class="dialog_header">
+       <span class="dialog_close" id="dialog_close"> &times;</span>
+       <h2 class="title" id="dialog_title">  Title </h2>
+     </div>
+     
+     <div class="dialog_body" id="dialog_body">
+       <p class="sublites" id="dialog_subtitle"> Hi i am dialog box </p>
+     </div>
+     
+     <div class="dialog_footer" id='dialog_footer'>
+      <a id="positiveBtn_link" > <input type="button" id="dialog_btnPositive" class="positiveBtn" Value=""/> </a>
+       
+       <input type="button" id="dialog_btnNagitive" class="nagitiveBtn" Value=""/>
+     </div> 
+   </div>
+   </div>
+    
+    
+    <script type="module">
+    
+    import {initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+     import { getDatabase, ref, onValue, update, query, orderByValue, limitToFirst, limitToLast} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+     
+     
+    var firebaseConfig = {
+      apiKey: "AIzaSyBDmmdzplwwsAPQyQiGzacwmyj-SbSy2C8",
+      authDomain: "whatsup-groups.firebaseapp.com",
+      databaseURL: "https://whatsup-groups-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "whatsup-groups",
+      storageBucket: "whatsup-groups.appspot.com",
+      messagingSenderId: "294483971796",
+      appId: "1:294483971796:web:98d6fe6cdb23e40cc97541",
+      measurementId: "G-5GVGZXD8DL"
+    };
+    
+    var app = initializeApp(firebaseConfig);
+    var db = getDatabase(app);
+    var dbRef = ref(db, "Published Groups/");
+    
+    
+    function getGroupData(img, name, message, category, url, clickCount, date, postId) {
+     
+      
+    var main_cont= document.getElementById('main_Container');
+    
+    var div = document.createElement('div');
+    main_cont.appendChild(div);
+    main_cont.insertBefore(div, main_cont.children[0]);
+    
+//    var _img = document.createElement('input');
+    
+    var _img = document.createElement('img');
+    var _title = document.createElement('h3');
+    var _category = document.createElement('p');
+    var _date = document.createElement('p');
+    var _url= document.createElement('a');
+    var _button = document.createElement('input');
+    var _clickCount= document.createElement('p');
+    
+// Join button events ===========>
+    _button.addEventListener('click', function() {
+   
+   function getMessage(_message) {
+          if (_message != undefined) {
+            return '<b>Group Description:</b><br>' + _message + ' <br><br><b> Published on:</b> ' + date + '<br><b> Groups ID:</b> ' + postId; 
+          }
+          else { 
+            return 'No description available of this group' + '<br><br><b> Groups ID:</b> ' + postId}
+         }
+     myDialog('Group Info', getMessage(message), 'Join', 'Copy Link');
+     
+ // Copy text event ===========>   
+    function copyText(link) {
+      var someText = 'Follow this link to join my whatsapp group:' + link + ' \n\n This link copied from:' + window.location.href ;
+      navigator.clipboard.writeText(someText)
+      dialog_btnNagitive.value = 'Copied';
+    var timer1 = setInterval(function () {
+      dialog_btnNagitive.value = ' Copy Link'
+     }, 1000)
+      }
+    
+// Custom dialog nagitive button events ===========>    
+     dialog_btnNagitive.addEventListener('click', function() {
+     copyText(url);
+
+    });
+// Custom positive button events ===========>    
+    dialog_btnPositive.addEventListener('click', function () {
+      positiveBtn_link.href = url;
+      positiveBtn_link.target =  '_blank' ;
+    })
+       var x = clickCount+1;
+       _clickCount.innerHTML = 'Clicks - ' +  x;
+       
+       update(ref(db, 'Whatsapp Groups/' + postId), {
+       ClickCount: 1 + clickCount++,
+      })
+     }) 
+     
+     _img.src = img;
+     _img.alt = 'Group profile picture';
+     _title.setAttribute('class', 'title');
+     _title.innerHTML = decreaseLength(name, 23, "...") 
+     _category.setAttribute('class', 'category');
+     _category.innerHTML = category;
+     _date.setAttribute('class', 'date');
+     _date.innerHTML = date;
+     _button.value = 'Join »';
+     _button.type = 'button' ;
+     _clickCount.setAttribute('class', 'clickCount');
+     _clickCount.innerHTML = 'Clicks - ' + clickCount;
+ 
+     
+     div.appendChild(_img);
+     div.appendChild(_title);
+     div.appendChild(_category);
+     div.appendChild(_date);
+     div.appendChild(_button);
+     div.appendChild(_clickCount);
+    
+    };
+    
+    function decreaseLength(value1, value2, value3) {
+     if (value1.length > value2 ) {
+  //     var w = value2.substring(value1);
+       var x = value1.split('');
+       var y = x.join('').substring(value1.length - value2);
+      var z = y.split('').reverse();
+      var a = z.join(''); 
+      return a + value3;
+     } else {
+     return value1;
+     } }
+    
+//==========================================    
+    function getAllData() {
+    var newRef = query(dbRef, limitToFirst(500));
+    onValue(newRef, (snapshot) => {
+    snapshot.forEach((childSnapshot) => {
+      
+     try {
+        var postId = childSnapshot.key;
+        
+        var  checkImg = childSnapshot.val().GroupImage;
+        
+     if ( false) {
+        var img = checkImg;
+        } else {
+        var img =  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhBJE0kbtS9rJKrw3h00kuDjF9D3-JOwCCUQ&usqp=CAU";
+       }
+        var name = childSnapshot.val().GroupName;
+        var message = childSnapshot.val().GroupDescription;
+        var category = childSnapshot.val().GroupCategory;
+        var date = childSnapshot.val().PublishedDate;
+        var url = childSnapshot.val().GroupLink
+        var clickCount = childSnapshot.val().ClickCount;
+        
+        
+   //  if (category.includes("Drama")) {
+        getGroupData(img, name, message, category, url, clickCount, date, postId);
+   //  }
+     } catch(showError) {
+       console.log ("Error" + showError)
+     } // end try catch 
+     });
+   }, {
+  onlyOnce: true
+   });
+    
+   } //function getAllData end
+  
+   getAllData();
+   
+ // Dialog properties js ============
+ 
+   var dialog = document.getElementById("dialog");
+   var dialog_close = document.getElementById("dialog_close");
+   var dialog_body = document.getElementById("dialog_body");
+   var dialog_title = document.getElementById("dialog_title");
+   var dialog_subtitle = document.getElementById("dialog_subtitle");
+   var dialog_footer = document.getElementById("dialog_footer");
+   var dialog_btnPositive = document.getElementById("dialog_btnPositive");
+   var positiveBtn_link = document.getElementById("positiveBtn_link");
+   var dialog_btnNagitive = document.getElementById("dialog_btnNagitive");
+  
+    
+    dialog_close.addEventListener('click', function () {
+      dialog.style.display = 'none';
+     });
+     
+    window.onclick = function(event) {
+    if (event.target == dialog) {
+    dialog.style.display = "none";
+      }
+    }
+    
+    function myDialog(_title, _subtitle, _btnPositive, _btnNagitive) {
+     dialog.style.display = 'block';
+     dialog_title.innerHTML = _title;
+     dialog_subtitle.innerHTML = _subtitle;
+     dialog_btnPositive.value = _btnPositive;
+     dialog_btnNagitive.value = _btnNagitive;
+    }
+    
+
+    </script>
+    
+  </body>
+</html>
